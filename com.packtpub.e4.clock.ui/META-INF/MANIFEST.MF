@@ -7,6 +7,7 @@ Bundle-Activator: com.packtpub.e4.clock.ui.Activator
 Bundle-Vendor: PacktPub
 Require-Bundle: org.eclipse.ui,
  org.eclipse.core.runtime,
- org.eclipse.ui.views
+ org.eclipse.ui.views,
+ org.eclipse.core.expressions
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Bundle-ActivationPolicy: lazy

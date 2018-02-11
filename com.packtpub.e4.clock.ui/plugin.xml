@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?eclipse version="3.4"?>
 <plugin>
-
+	<!-- View -->
    <extension
          point="org.eclipse.ui.views">
       <category
@@ -40,6 +40,8 @@
             restorable="true">
       </view>
    </extension>
+
+	<!-- Adapter -->
    <extension
          point="org.eclipse.core.runtime.adapters">
       <factory
@@ -49,5 +51,106 @@
                type="org.eclipse.ui.views.properties.IPropertySource">
          </adapter>
       </factory>
+   </extension>
+
+	<!-- Command -->
+   <extension
+         point="org.eclipse.ui.commands">
+      <command
+            description="Say Hello World"
+            id="com.packtpub.e4.clock.ui.command.hello"
+            name="Hello">
+      </command>
+   </extension>
+   <extension
+         point="org.eclipse.ui.commands">
+      <command
+            description="Shows the Time"
+            id="com.packtpub.e4.clock.ui.command.showTheTime"
+            name="Show the Time">
+      </command>
+   </extension>
+   
+   <!-- Handler -->
+   <extension
+         point="org.eclipse.ui.handlers">
+      <handler
+            class="com.packtpub.e4.clock.ui.handlers.HelloHandler"
+            commandId="com.packtpub.e4.clock.ui.command.hello">
+            <enabledWhen>
+            	<reference definitionId="when.hello.is.active"/>
+            </enabledWhen>
+      </handler>
+   </extension>
+   <extension
+         point="org.eclipse.ui.handlers">
+      <handler
+            class="com.packtpub.e4.clock.ui.handlers.ShowTheTime"
+            commandId="com.packtpub.e4.clock.ui.command.showTheTime">
+      </handler>
+   </extension>
+
+   <!-- Menu -->
+   <extension
+         point="org.eclipse.ui.menus">
+      <menuContribution
+            allPopups="false"
+            locationURI="menu:help?after=additions">
+         <command
+               commandId="com.packtpub.e4.clock.ui.command.hello"
+               label="Hello"
+               style="push">
+               <visibleWhen>
+               		<reference definitionId="when.hello.is.active"/>
+               </visibleWhen>
+         </command>
+      </menuContribution>
+   </extension>
+   <extension
+         point="org.eclipse.ui.menus">
+      <menuContribution
+            allPopups="false"
+            locationURI="popup:org.eclipse.ui.popup.any">
+         <command
+               commandId="com.packtpub.e4.clock.ui.command.showTheTime"
+               label="Show the Time"
+               style="push">
+               <visibleWhen checkEnabled="false">
+               		<with variable="selection">
+               			<iterate ifEmpty="false">
+               				<adapt type="java.util.TimeZone"/>
+               			</iterate>
+               		</with>
+               </visibleWhen>
+         </command>
+      </menuContribution>
+   </extension>
+   
+   <!-- Keyboard shortcut -->
+   <extension
+         point="org.eclipse.ui.bindings">
+      <key
+            commandId="com.packtpub.e4.clock.ui.command.hello"
+            contextId="org.eclipse.ui.contexts.window"
+            schemeId="org.eclipse.ui.defaultAcceleratorConfiguration"
+            sequence="M1+9">
+      </key>
+   </extension>
+
+   <!-- Expression -->
+   <extension
+         point="org.eclipse.core.expressions.definitions">
+      <definition
+            id="when.hello.is.active">
+         <with
+               variable="activeContexts">
+            <iterate
+                  operator="or">
+               <equals
+                     value="org.eclipse.jdt.ui.javaEditorScope">
+               </equals>
+            </iterate>
+         </with>
+      </definition>
    </extension>
 </plugin>

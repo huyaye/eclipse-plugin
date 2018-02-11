@@ -3,6 +3,7 @@ package com.packtpub.e4.clock.ui.views;
 import java.net.URL;
 import java.util.TimeZone;
 
+import org.eclipse.jface.action.MenuManager;
 import org.eclipse.jface.resource.FontRegistry;
 import org.eclipse.jface.resource.ImageDescriptor;
 import org.eclipse.jface.resource.ImageRegistry;
@@ -18,6 +19,7 @@ import org.eclipse.jface.viewers.TreeViewer;
 import org.eclipse.jface.viewers.Viewer;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.widgets.Composite;
+import org.eclipse.swt.widgets.Menu;
 import org.eclipse.swt.widgets.Shell;
 import org.eclipse.ui.part.ViewPart;
 
@@ -84,6 +86,8 @@ public class TimeZoneTreeView extends ViewPart {
 		 */
 		selectionListener = new TimeZoneSelectionListener(treeViewer, getSite().getPart());
 		getSite().getWorkbenchWindow().getSelectionService().addSelectionListener(selectionListener);
+
+		hookContextMenu(treeViewer);
 	}
 
 	@Override
@@ -98,6 +102,13 @@ public class TimeZoneTreeView extends ViewPart {
 			selectionListener = null;
 		}
 		super.dispose();
+	}
+
+	private void hookContextMenu(Viewer viewer) {
+		MenuManager manager = new MenuManager("#PopupMenu");
+		Menu menu = manager.createContextMenu(viewer.getControl());
+		viewer.getControl().setMenu(menu);
+		getSite().registerContextMenu(manager, viewer);
 	}
 
 }
