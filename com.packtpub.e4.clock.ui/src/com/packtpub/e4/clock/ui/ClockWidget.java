@@ -57,6 +57,7 @@ public class ClockWidget extends Canvas {
 				if (color != null && !color.isDisposed()) {
 					color.dispose();
 				}
+				tickTock.interrupt();
 			}
 		});
 
@@ -95,6 +96,5 @@ public class ClockWidget extends Canvas {
 		int hours = new Date().getHours() + offset;
 		arc = (3 - hours) * 30 % 360;
 		e.gc.fillArc(e.x, e.y, e.width - 1, e.height - 1, arc - 5, 10);
-
 	}
 }
