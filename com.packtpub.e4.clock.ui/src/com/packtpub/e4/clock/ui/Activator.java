@@ -1,5 +1,8 @@
 package com.packtpub.e4.clock.ui;
 
+import org.eclipse.core.runtime.preferences.IEclipsePreferences;
+import org.eclipse.core.runtime.preferences.InstanceScope;
+import org.eclipse.jface.preference.IPreferenceStore;
 import org.eclipse.jface.resource.ImageDescriptor;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.events.DisposeEvent;
@@ -49,7 +52,7 @@ public class Activator extends AbstractUIPlugin {
 		plugin = this;
 
 		/*
-		 * SWTException (Invald Thread) occurs when eclipse open.
+		 * In MacOS, SWTException (Invald Thread) occurs when eclipse open.
 		 */
 		final Display display = Display.getDefault();
 		display.asyncExec(new Runnable() {
@@ -102,6 +105,14 @@ public class Activator extends AbstractUIPlugin {
 				}
 			}
 		});
+
+		int launchCount = getPreferenceStore().getInt("launchCount");
+		IEclipsePreferences eclipsePreferences = InstanceScope.INSTANCE.getNode(PLUGIN_ID);
+		int launchCount2 = eclipsePreferences.getInt("launchCount", -1);
+		System.out.println("I have been launched " + launchCount + " times and " + launchCount2);
+		getPreferenceStore().setValue("launchCount", launchCount + 1);
+		
+		IPreferenceStore a;
 	}
 
 	/*
@@ -125,8 +136,8 @@ public class Activator extends AbstractUIPlugin {
 	}
 
 	/**
-	 * Returns an image descriptor for the image file at the given plug-in
-	 * relative path
+	 * Returns an image descriptor for the image file at the given plug-in relative
+	 * path
 	 *
 	 * @param path
 	 *            the path
