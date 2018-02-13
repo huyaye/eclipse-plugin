@@ -6,10 +6,13 @@ import java.util.Map.Entry;
 import java.util.Set;
 import java.util.TimeZone;
 
+import org.eclipse.jface.dialogs.IDialogSettings;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.custom.CTabFolder;
 import org.eclipse.swt.custom.CTabItem;
 import org.eclipse.swt.custom.ScrolledComposite;
+import org.eclipse.swt.events.SelectionAdapter;
+import org.eclipse.swt.events.SelectionEvent;
 import org.eclipse.swt.graphics.Point;
 import org.eclipse.swt.graphics.RGB;
 import org.eclipse.swt.layout.FillLayout;
@@ -19,10 +22,12 @@ import org.eclipse.swt.widgets.Display;
 import org.eclipse.swt.widgets.Group;
 import org.eclipse.ui.part.ViewPart;
 
+import com.packtpub.e4.clock.ui.Activator;
 import com.packtpub.e4.clock.ui.ClockWidget;
 import com.packtpub.e4.clock.ui.internal.TimeZoneComparator;
 
 public class TimeZoneView extends ViewPart {
+	private transient String lastTabSelected;
 
 	public TimeZoneView() {
 		// TODO Auto-generated constructor stub
@@ -62,7 +67,28 @@ public class TimeZoneView extends ViewPart {
 			scrolled.setExpandHorizontal(true);
 			scrolled.setExpandVertical(true);
 		}
-		tabs.setSelection(0);
+		final IDialogSettings settings = Activator.getDefault().getDialogSettings();
+		lastTabSelected = settings.get("lastTabSelected");
+		if (lastTabSelected == null) {
+			tabs.setSelection(0);
+		} else {
+			CTabItem[] items = tabs.getItems();
+			for (CTabItem item : items) {
+				if (lastTabSelected.equals(item.getText())) {
+					tabs.setSelection(item);
+					break;
+				}
+			}
+		}
+
+		tabs.addSelectionListener(new SelectionAdapter() {
+			public void widgetSelected(SelectionEvent e) {
+				if (e.item instanceof CTabItem) {
+					lastTabSelected = ((CTabItem) e.item).getText();
+					settings.put("lastTabSelected", lastTabSelected);
+				}
+			}
+		});
 	}
 
 	@Override
@@ -70,5 +96,22 @@ public class TimeZoneView extends ViewPart {
 		// TODO Auto-generated method stub
 
 	}
+
+	/*
+	 * WARNING!! Do not use IMemento.
+	 */
+	// @Override
+	// public void init(IViewSite site, IMemento memento) throws PartInitException {
+	// super.init(site, memento);
+	// if (memento != null) {
+	// lastTabSelected = memento.getString("lastTabSelected");
+	// }
+	// }
+	//
+	// @Override
+	// public void saveState(IMemento memento) {
+	// super.saveState(memento);
+	// memento.putString("lastTabSelected", lastTabSelected);
+	// }
 
 }
