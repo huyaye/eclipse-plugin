@@ -46,4 +46,10 @@
          		commandId="com.packtpub.e4.minimark.ui.AddMinimarkNature"/>
          </menuContribution>
    </extension>
+   <extension
+         id="com.packtpub.e4.minimark.ui.MinimarkMarker"
+         point="org.eclipse.core.resources.markers">
+         <persistent value="false"/>
+         <super type="org.eclipse.core.resources.problemmarker"/>
+   </extension>
 </plugin>
