@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <application:Application xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:advanced="http://www.eclipse.org/ui/2010/UIModel/application/ui/advanced" xmlns:application="http://www.eclipse.org/ui/2010/UIModel/application" xmlns:basic="http://www.eclipse.org/ui/2010/UIModel/application/ui/basic" xmlns:menu="http://www.eclipse.org/ui/2010/UIModel/application/ui/menu" xmi:id="_NYwPsBOQEeit5a4sOa1Dlw" elementId="org.eclipse.e4.ide.application" bindingContexts="_NYw2yBOQEeit5a4sOa1Dlw">
-  <children xsi:type="basic:TrimmedWindow" xmi:id="_NYw2wBOQEeit5a4sOa1Dlw" label="com.packtpub.e4.application" width="500" height="400">
+  <children xsi:type="basic:TrimmedWindow" xmi:id="_NYw2wBOQEeit5a4sOa1Dlw" label="Hello E4" width="500" height="400">
     <children xsi:type="advanced:PerspectiveStack" xmi:id="_NYxd0BOQEeit5a4sOa1Dlw">
       <children xsi:type="advanced:Perspective" xmi:id="_NYxd0ROQEeit5a4sOa1Dlw">
         <children xsi:type="basic:PartSashContainer" xmi:id="_NYxd0hOQEeit5a4sOa1Dlw">
           <children xsi:type="basic:PartStack" xmi:id="_NYxd0xOQEeit5a4sOa1Dlw">
             <children xsi:type="basic:Part" xmi:id="_eESuABOSEeit5a4sOa1Dlw" elementId="com.packtpub.e4.application.part.hello" contributionURI="bundleclass://com.packtpub.e4.application/com.packtpub.e4.application.parts.Hello" label="Hello"/>
+            <children xsi:type="basic:Part" xmi:id="_m5V0wBPiEeirY4doyd1Z7g" elementId="com.packtpub.e4.application.part.rainbow" contributionURI="bundleclass://com.packtpub.e4.application/com.packtpub.e4.application.parts.Rainbow" label="Rainbow"/>
           </children>
         </children>
       </children>
@@ -24,6 +25,33 @@
       <children xsi:type="menu:ToolBar" xmi:id="_NYxd1hOQEeit5a4sOa1Dlw" elementId="toolbar:org.eclipse.ui.main.toolbar">
         <children xsi:type="menu:HandledToolItem" xmi:id="_NYxd1xOQEeit5a4sOa1Dlw" iconURI="platform:/plugin/com.packtpub.e4.application/icons/sample.png" command="_NYw2zxOQEeit5a4sOa1Dlw"/>
         <children xsi:type="menu:HandledToolItem" xmi:id="_NYxd2BOQEeit5a4sOa1Dlw" iconURI="platform:/plugin/com.packtpub.e4.application/icons/save_edit.png" command="_NYw20hOQEeit5a4sOa1Dlw"/>
+      </children>
+    </trimBars>
+  </children>
+  <children xsi:type="basic:TrimmedWindow" xmi:id="_hKB80BPHEeirY4doyd1Z7g" visible="false" label="Other E4" width="500" height="400">
+    <children xsi:type="advanced:PerspectiveStack" xmi:id="_hKB80RPHEeirY4doyd1Z7g">
+      <children xsi:type="advanced:Perspective" xmi:id="_hKB80hPHEeirY4doyd1Z7g">
+        <children xsi:type="basic:PartSashContainer" xmi:id="_hKB80xPHEeirY4doyd1Z7g">
+          <children xsi:type="basic:PartStack" xmi:id="_hKB81BPHEeirY4doyd1Z7g">
+            <children xsi:type="basic:Part" xmi:id="_hKB81RPHEeirY4doyd1Z7g" elementId="com.packtpub.e4.application.part.hello" contributionURI="bundleclass://com.packtpub.e4.application/com.packtpub.e4.application.parts.Hello" label="Hello"/>
+          </children>
+        </children>
+      </children>
+    </children>
+    <mainMenu xmi:id="_hKB81hPHEeirY4doyd1Z7g" elementId="menu:org.eclipse.ui.main.menu">
+      <children xsi:type="menu:Menu" xmi:id="_hKB81xPHEeirY4doyd1Z7g" label="File">
+        <children xsi:type="menu:HandledMenuItem" xmi:id="_hKB82BPHEeirY4doyd1Z7g" label="Open" iconURI="platform:/plugin/com.packtpub.e4.application/icons/sample.png" command="_NYw2zxOQEeit5a4sOa1Dlw"/>
+        <children xsi:type="menu:HandledMenuItem" xmi:id="_hKB82RPHEeirY4doyd1Z7g" label="Save" iconURI="platform:/plugin/com.packtpub.e4.application/icons/save_edit.png" command="_NYw20hOQEeit5a4sOa1Dlw"/>
+        <children xsi:type="menu:HandledMenuItem" xmi:id="_hKB82hPHEeirY4doyd1Z7g" label="Quit" command="_NYw2yxOQEeit5a4sOa1Dlw"/>
+      </children>
+      <children xsi:type="menu:Menu" xmi:id="_hKB82xPHEeirY4doyd1Z7g" label="Help">
+        <children xsi:type="menu:HandledMenuItem" xmi:id="_hKB83BPHEeirY4doyd1Z7g" label="About" command="_NYw21ROQEeit5a4sOa1Dlw"/>
+      </children>
+    </mainMenu>
+    <trimBars xmi:id="_hKB83RPHEeirY4doyd1Z7g">
+      <children xsi:type="menu:ToolBar" xmi:id="_hKB83hPHEeirY4doyd1Z7g" elementId="toolbar:org.eclipse.ui.main.toolbar">
+        <children xsi:type="menu:HandledToolItem" xmi:id="_hKB83xPHEeirY4doyd1Z7g" iconURI="platform:/plugin/com.packtpub.e4.application/icons/sample.png" command="_NYw2zxOQEeit5a4sOa1Dlw"/>
+        <children xsi:type="menu:HandledToolItem" xmi:id="_hKB84BPHEeirY4doyd1Z7g" iconURI="platform:/plugin/com.packtpub.e4.application/icons/save_edit.png" command="_NYw20hOQEeit5a4sOa1Dlw"/>
       </children>
     </trimBars>
   </children>
