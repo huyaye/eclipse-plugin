@@ -1,0 +1,11 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: App
+Bundle-SymbolicName: com.packtpub.e4.headless.application;singleton:=true
+Bundle-Version: 1.0.0.qualifier
+Bundle-Activator: com.packtpub.e4.headless.application.Activator
+Bundle-Vendor: PACKTPUB
+Bundle-RequiredExecutionEnvironment: JavaSE-1.8
+Import-Package: org.osgi.framework;version="1.3.0"
+Bundle-ActivationPolicy: lazy
+Require-Bundle: org.eclipse.equinox.app
