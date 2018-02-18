@@ -13,6 +13,8 @@ import org.eclipse.jface.viewers.SelectionChangedEvent;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.widgets.Composite;
 
+import com.packtpub.e4.application.IStringService;
+
 public class Rainbow {
 	private static final Object[] rainbow = { "Red", "Orange", "Yellow", "Green", "Blue", "Indigo", "Violet" };
 
@@ -21,6 +23,9 @@ public class Rainbow {
 
 	@Inject
 	private EventBroker broker;
+
+	@Inject
+	private IStringService stringService;
 
 	@PostConstruct
 	public void create(Composite parent) {
@@ -39,7 +44,8 @@ public class Rainbow {
 				 */
 				IStructuredSelection sel = (IStructuredSelection) event.getSelection();
 				Object colour = sel.getFirstElement();
-				broker.post("rainbow/colour", colour); // Asynchronous handle
+				// Asynchronous handle
+				broker.post("rainbow/colour", stringService.process(colour.toString()));
 			}
 		});
 
