@@ -5,7 +5,15 @@
       <children xsi:type="advanced:Perspective" xmi:id="_NYxd0ROQEeit5a4sOa1Dlw">
         <children xsi:type="basic:PartSashContainer" xmi:id="_NYxd0hOQEeit5a4sOa1Dlw">
           <children xsi:type="basic:PartStack" xmi:id="_NYxd0xOQEeit5a4sOa1Dlw">
-            <children xsi:type="basic:Part" xmi:id="_eESuABOSEeit5a4sOa1Dlw" elementId="com.packtpub.e4.application.part.hello" contributionURI="bundleclass://com.packtpub.e4.application/com.packtpub.e4.application.parts.Hello" label="Hello"/>
+            <children xsi:type="basic:Part" xmi:id="_eESuABOSEeit5a4sOa1Dlw" elementId="com.packtpub.e4.application.part.hello" contributionURI="bundleclass://com.packtpub.e4.application/com.packtpub.e4.application.parts.Hello" label="Hello">
+              <menus xsi:type="menu:PopupMenu" xmi:id="_ZuMuEBRvEeirZIdoyd1Z7g" elementId="com.packtpub.e4.application.popupmenu.hello">
+                <children xsi:type="menu:HandledMenuItem" xmi:id="_j_nTgBRvEeirZIdoyd1Z7g" elementId="com.packtpub.e4.application.handledmenuitem.hello" label="Hello" command="_wzgy4BRmEeirY4doyd1Z7g"/>
+              </menus>
+              <menus xmi:id="_xrnJcBRvEeirZIdoyd1Z7g" elementId="com.packtpub.e4.application.menu.viewmenu" label="View Menu">
+                <tags>ViewMenu</tags>
+                <children xsi:type="menu:HandledMenuItem" xmi:id="_56f2cBRvEeirZIdoyd1Z7g" elementId="com.packtpub.e4.application.handledmenuitem.hello" label="Hello" command="_wzgy4BRmEeirY4doyd1Z7g"/>
+              </menus>
+            </children>
             <children xsi:type="basic:Part" xmi:id="_m5V0wBPiEeirY4doyd1Z7g" elementId="com.packtpub.e4.application.part.rainbow" contributionURI="bundleclass://com.packtpub.e4.application/com.packtpub.e4.application.parts.Rainbow" label="Rainbow"/>
           </children>
         </children>
@@ -16,6 +24,10 @@
         <children xsi:type="menu:HandledMenuItem" xmi:id="_NYw22hOQEeit5a4sOa1Dlw" label="Open" iconURI="platform:/plugin/com.packtpub.e4.application/icons/sample.png" command="_NYw2zxOQEeit5a4sOa1Dlw"/>
         <children xsi:type="menu:HandledMenuItem" xmi:id="_NYw22xOQEeit5a4sOa1Dlw" label="Save" iconURI="platform:/plugin/com.packtpub.e4.application/icons/save_edit.png" command="_NYw20hOQEeit5a4sOa1Dlw"/>
         <children xsi:type="menu:HandledMenuItem" xmi:id="_NYw23BOQEeit5a4sOa1Dlw" label="Quit" command="_NYw2yxOQEeit5a4sOa1Dlw"/>
+        <children xsi:type="menu:HandledMenuItem" xmi:id="_a6fbsBRnEeirY4doyd1Z7g" elementId="com.packtpub.e4.application.handledmenuitem.hello" label="Hello" tooltip="Says Hello World" command="_wzgy4BRmEeirY4doyd1Z7g">
+          <parameters xmi:id="_RxHxgBRpEeirZIdoyd1Z7g" elementId="com.packtpub.e4.application.parameter.hello.value" name="com.packtpub.e4.application.commandparameter.hello.value" value="Hello World Parameter"/>
+        </children>
+        <children xsi:type="menu:DirectMenuItem" xmi:id="_MbznwBRrEeirZIdoyd1Z7g" elementId="com.packtpub.e4.application.directmenuitem.hello" label="Direct Hello" contributionURI="bundleclass://com.packtpub.e4.application/com.packtpub.e4.application.handlers.HelloHandler"/>
       </children>
       <children xsi:type="menu:Menu" xmi:id="_NYw23ROQEeit5a4sOa1Dlw" label="Help">
         <children xsi:type="menu:HandledMenuItem" xmi:id="_NYw23hOQEeit5a4sOa1Dlw" label="About" command="_NYw21ROQEeit5a4sOa1Dlw"/>
@@ -59,11 +71,13 @@
   <handlers xmi:id="_NYw20BOQEeit5a4sOa1Dlw" elementId="com.packtpub.e4.application.handler.openCommand" contributionURI="bundleclass://com.packtpub.e4.application/com.packtpub.e4.application.handlers.OpenHandler" command="_NYw2zxOQEeit5a4sOa1Dlw"/>
   <handlers xmi:id="_NYw20xOQEeit5a4sOa1Dlw" elementId="com.packtpub.e4.application.handler.saveCommand" contributionURI="bundleclass://com.packtpub.e4.application/com.packtpub.e4.application.handlers.SaveHandler" command="_NYw20hOQEeit5a4sOa1Dlw"/>
   <handlers xmi:id="_NYw21hOQEeit5a4sOa1Dlw" elementId="com.packtpub.e4.application.handler.aboutCommand" contributionURI="bundleclass://com.packtpub.e4.application/com.packtpub.e4.application.handlers.AboutHandler" command="_NYw21ROQEeit5a4sOa1Dlw"/>
+  <handlers xmi:id="_H_jbsBRnEeirY4doyd1Z7g" elementId="com.packtpub.e4.application.handler.hello" contributionURI="bundleclass://com.packtpub.e4.application/com.packtpub.e4.application.handlers.HelloHandler" command="_wzgy4BRmEeirY4doyd1Z7g"/>
   <bindingTables xmi:id="_NYw2zROQEeit5a4sOa1Dlw" bindingContext="_NYw2yBOQEeit5a4sOa1Dlw">
     <bindings xmi:id="_NYw2zhOQEeit5a4sOa1Dlw" keySequence="M1+Q" command="_NYw2yxOQEeit5a4sOa1Dlw"/>
     <bindings xmi:id="_NYw20ROQEeit5a4sOa1Dlw" keySequence="M1+O" command="_NYw2zxOQEeit5a4sOa1Dlw"/>
     <bindings xmi:id="_NYw21BOQEeit5a4sOa1Dlw" keySequence="M1+S" command="_NYw20hOQEeit5a4sOa1Dlw"/>
     <bindings xmi:id="_NYw21xOQEeit5a4sOa1Dlw" keySequence="M1+A" command="_NYw21ROQEeit5a4sOa1Dlw"/>
+    <bindings xmi:id="_yR-GMBRsEeirZIdoyd1Z7g" elementId="" keySequence="M1+L" command="_wzgy4BRmEeirY4doyd1Z7g"/>
   </bindingTables>
   <rootContext xmi:id="_NYw2yBOQEeit5a4sOa1Dlw" elementId="org.eclipse.ui.contexts.dialogAndWindow" name="In Dialog and Windows">
     <children xmi:id="_NYw2yROQEeit5a4sOa1Dlw" elementId="org.eclipse.ui.contexts.window" name="In Windows"/>
@@ -73,6 +87,9 @@
   <commands xmi:id="_NYw2zxOQEeit5a4sOa1Dlw" elementId="com.packtpub.e4.application.open" commandName="openCommand"/>
   <commands xmi:id="_NYw20hOQEeit5a4sOa1Dlw" elementId="org.eclipse.ui.file.save" commandName="saveCommand"/>
   <commands xmi:id="_NYw21ROQEeit5a4sOa1Dlw" elementId="org.eclipse.ui.help.aboutAction" commandName="aboutCommand"/>
+  <commands xmi:id="_wzgy4BRmEeirY4doyd1Z7g" elementId="com.packtpub.e4.application.command.hello" commandName="helloCommand" description="Says Hello">
+    <parameters xmi:id="_zAof0BRoEeirZIdoyd1Z7g" elementId="com.packtpub.e4.application.commandparameter.hello.value" name="hello.value"/>
+  </commands>
   <addons xmi:id="_NYw2wROQEeit5a4sOa1Dlw" elementId="org.eclipse.e4.core.commands.service" contributionURI="bundleclass://org.eclipse.e4.core.commands/org.eclipse.e4.core.commands.CommandServiceAddon"/>
   <addons xmi:id="_NYw2whOQEeit5a4sOa1Dlw" elementId="org.eclipse.e4.ui.contexts.service" contributionURI="bundleclass://org.eclipse.e4.ui.services/org.eclipse.e4.ui.services.ContextServiceAddon"/>
   <addons xmi:id="_NYw2wxOQEeit5a4sOa1Dlw" elementId="org.eclipse.e4.ui.bindings.service" contributionURI="bundleclass://org.eclipse.e4.ui.bindings/org.eclipse.e4.ui.bindings.BindingServiceAddon"/>

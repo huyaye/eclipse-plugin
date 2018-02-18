@@ -15,6 +15,7 @@ import org.eclipse.e4.ui.di.Focus;
 import org.eclipse.e4.ui.di.UIEventTopic;
 import org.eclipse.e4.ui.di.UISynchronize;
 import org.eclipse.e4.ui.model.application.ui.basic.MWindow;
+import org.eclipse.e4.ui.services.EMenuService;
 import org.eclipse.e4.ui.services.IServiceConstants;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.events.SelectionEvent;
@@ -52,7 +53,7 @@ public class Hello {
 	private UISynchronize ui;
 
 	@PostConstruct
-	public void create(Composite parent) {
+	public void create(Composite parent, EMenuService menu) {
 		label = new Label(parent, SWT.NONE);
 		label.setText(greeting + " " + window.getLabel() + " " + random);
 
@@ -85,6 +86,7 @@ public class Hello {
 			}
 		});
 
+		menu.registerContextMenu(parent, "com.packtpub.e4.application.popupmenu.hello");
 	}
 
 	@Focus
